@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Oxted Ladies Joggers</title>
+
+	<script src="https://use.fontawesome.com/71d7206d11.js"></script>
+
+	<link rel="stylesheet" href="css/tether/tether.min.css"/>
+	<link rel="stylesheet" href="css/bootstrap.min.css"/>
+
+	<script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="></script>
+	<script src="js/tether/tether.min.js"></script>
+	<script src="js/bootstrap.min.js"></script>
+
+</head>
+
+<body>
+<div class="container text-center">
+	<div class="row">
+		<div class="col">
+			<img class="m-4" src="images/OLJ.svg">
+		</div>
+	</div>
+	<div class="row">
+		<div class="col lead">Be notified of upcoming events by registering your email address with us</div>
+	</div>
+	<div class="row m-3">
+		<div class="col"></div>
+
+		<div id="form-row">
+			<form id="register-form">
+				<div class="form-group">
+					<div class="input-group">
+						<span class="input-group-addon"><i class="fa fa-envelope"></i></span>
+						<input type="email" required id="email" name="email" autocomplete="home email" class="form-control" placeholder="me@home.com">
+						<span class="input-group-btn">
+						<button id="notify-btn" type="button" class="btn btn-info" onclick="register()">Notify Me <i class="fa fa-circle-o-notch fa-fw"
+						                                                                                             style="-webkit-filter: blur(0)"></i></button>
+					</span>
+					</div>
+					<div class="form-control-feedback invisible">Oops, something went wrong. Please check you have entered a valid e-mail address</div>
+				</div>
+			</form>
+		</div>
+
+		<div class="col"></div>
+	</div>
+</div>
+</body>
+
+<script>
+
+	function register() {
+
+		resetVisualState();
+
+	  //$.post("http://localhost:8080/register", $('#register-form').serialize())
+    $.post("http://localhost:8080/clubbed-services/v1/siteIds/OLJ/registrations/emails/" + $('#email').val(), {})
+//    $.post("http://www.oxtedladiesjoggers.co.uk/clubbed-services/v1/siteIds/OLJ/registrations/emails/", $('#register-form').serialize())
+			.done(function (response) {
+				if (response === 'OK') {
+
+					const formRow = $('#form-row');
+					const emailAddress = $('#register-form').find('input').val();
+
+					formRow.children().remove();
+					formRow.append('<div><i class="text-success fa fa-4x fa-check-circle"></i></div>',
+							'Done!<br/>',
+							'Thanks for registering your interest. Confirmation has been sent to: <span class="text-info">' + emailAddress + '</span>. (Please check your junk mail!)');
+				}
+				else {
+					setErrorState()
+				}
+			})
+			.fail(function (jqxhr, textStatus, error) {
+				console.error(error);
+				setErrorState();
+			})
+			.always(function () {
+				stopProgress();
+			});
+	}
+
+	function resetVisualState() {
+		$('.fa-circle-o-notch').toggleClass('fa-spin', true);
+		$('#notify-btn').toggleClass('disabled', true);
+		$('.form-group').toggleClass('has-danger', false);
+		$('#email').toggleClass('disabled form-control-danger', true);
+		$('.form-control-feedback').toggleClass('invisible', true);
+	}
+
+	function setErrorState() {
+	  $('.form-group').toggleClass('has-danger', true);
+		$('#email').toggleClass('form-control-danger', true);
+		$('.form-control-feedback').toggleClass('invisible', false);
+	}
+
+	function stopProgress() {
+	  $('#notify-btn').toggleClass('disabled', false);
+	  $('.fa-circle-o-notch').toggleClass('fa-spin', false);
+  }
+
+</script>
+
+</html>
