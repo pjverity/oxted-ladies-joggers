@@ -10,6 +10,8 @@
 	<link rel="stylesheet" href="css/bootstrap.min.css"/>
 
 	<script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js" integrity="sha384-b/U6ypiBEHpOf/4+1nzFpr53nxSS+GLCkfwBdFNTxtclqqenISfwAzpKaMNFNmj4" crossorigin="anonymous"></script>
+
 	<script src="js/tether/tether.min.js"></script>
 	<script src="js/bootstrap.min.js"></script>
 
@@ -19,7 +21,7 @@
 <div class="container text-center">
 	<div class="row">
 		<div class="col">
-			<img class="m-4" src="images/OLJ.svg">
+			<img class="m-4" src="images/logo.svg">
 		</div>
 	</div>
 	<div class="row">
@@ -55,7 +57,6 @@
 
 		resetVisualState();
 
-	  //$.post("http://localhost:8080/register", $('#register-form').serialize())
     $.post("http://localhost:8080/clubbed-services/v1/siteIds/OLJ/registrations/emails/" + $('#email').val(), {})
 //    $.post("http://www.oxtedladiesjoggers.co.uk/clubbed-services/v1/siteIds/OLJ/registrations/emails/", $('#register-form').serialize())
 			.done(function (response) {
