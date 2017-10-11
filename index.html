@@ -4,6 +4,8 @@
 	<meta charset="UTF-8">
 	<title>Oxted Ladies Joggers</title>
 
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
 	<script src="https://use.fontawesome.com/71d7206d11.js"></script>
 
 	<link rel="stylesheet" href="css/tether/tether.min.css"/>
@@ -57,8 +59,8 @@
 
 		resetVisualState();
 
-    $.post("http://localhost:8080/clubbed-services/v1/siteIds/OLJ/registrations/emails/" + $('#email').val(), {})
-//    $.post("http://www.oxtedladiesjoggers.co.uk/clubbed-services/v1/siteIds/OLJ/registrations/emails/", $('#register-form').serialize())
+    $.post("http://localhost:8080/clubbed-register-interest-svc/v1/siteIds/OLJ/registrations/emails/" + $('#email').val(), {})
+//    $.post("http://www.v-home.co.uk/clubbed-register-interest-svc/v1/siteIds/OLJ/registrations/emails/", $('#register-form').serialize())
 			.done(function (response) {
 				if (response === 'OK') {
 
