@@ -59,8 +59,8 @@
 
 		resetVisualState();
 
-    $.post("http://localhost:8080/clubbed-register-interest-svc/v1/siteIds/OLJ/registrations/emails/" + $('#email').val(), {})
-//    $.post("http://www.v-home.co.uk/clubbed-register-interest-svc/v1/siteIds/OLJ/registrations/emails/", $('#register-form').serialize())
+//    $.post("http://localhost:8080/clubbed-register-interest-svc/v1/siteIds/OLJ/registrations/emails/" + $('#email').val(), {})
+    $.post("http://server.v-home.co.uk/clubbed-register-interest-svc/v1/siteIds/OLJ/registrations/emails/" + $('#email').val(), {})
 			.done(function (response) {
 				if (response === 'OK') {
 
