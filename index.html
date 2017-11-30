@@ -8,18 +8,7 @@
 
 	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-	<script src="https://use.fontawesome.com/71d7206d11.js"></script>
-
-	<link rel="stylesheet" href="css/tether/tether.min.css"/>
-	<link rel="stylesheet" href="css/bootstrap.min.css"/>
-
-	<script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="></script>
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js" integrity="sha384-b/U6ypiBEHpOf/4+1nzFpr53nxSS+GLCkfwBdFNTxtclqqenISfwAzpKaMNFNmj4"
-	        crossorigin="anonymous"></script>
-
-	<script src="js/tether/tether.min.js"></script>
-	<script src="js/bootstrap.min.js"></script>
-
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">
 </head>
 
 <body>
@@ -31,37 +20,70 @@
 				<img class="img-fluid" src="images/logo.svg">
 			</div>
 		</div>
-		<div class="row">
-			<div class="col lead">Be notified of upcoming running sessions and courses by registering your email address with us</div>
-		</div>
+		<hr>
 	</div>
 </header>
 
 <main>
-	<div class="container text-center">
-		<div class="row m-3">
-			<div class="col"></div>
-			<div id="form-row">
-				<form id="register-form">
-					<div class="form-group">
-						<div class="input-group">
-							<span class="input-group-addon"><i class="fa fa-envelope"></i></span>
-							<input type="email" required id="email" name="email" autocomplete="home email" class="form-control" placeholder="me@home.com">
-							<span class="input-group-btn">
-						<button id="notify-btn" type="button" class="btn btn-info" onclick="register()">Notify Me <i class="fa fa-circle-o-notch fa-fw"
-						                                                                                             style="-webkit-filter: blur(0)"></i></button>
-					</span>
-						</div>
-						<div class="form-control-feedback invisible">Oops, something went wrong. Please check you have entered a valid e-mail address</div>
+	<div class="container">
+
+		<div class="row justify-content-center">
+
+			<form id="enquiry-form">
+
+				<div class="row mb-4 lead text-center">
+					Be notified of upcoming running sessions and courses by registering your email address with us
+				</div>
+
+				<div class="form-group row">
+
+					<div class="col-6">
+						<input type="text" class="form-control" name="firstName" autocomplete="home firstName" placeholder="First name" required>
 					</div>
-				</form>
-			</div>
-			<div class="col"></div>
+
+					<div class="col-6">
+						<input type="text" class="form-control" name="lastName" autocomplete="home lastName" placeholder="Last name" required>
+					</div>
+
+				</div>
+
+				<div class="form-group row">
+
+					<div class="col">
+						<div class="form-group">
+							<div class="input-group">
+								<span class="input-group-addon"><i class="fa fa-fw fa-envelope"></i></span>
+								<input type="email" id="email" name="email" autocomplete="home email" class="form-control" placeholder="me@home.com" required>
+								<span class="input-group-btn">
+									<button type="submit" class="btn btn-info">Notify Me <i class="fa fa-fw fa-circle-o-notch" style="-webkit-filter: blur(0)"></i></button>
+								</span>
+							</div>
+						</div>
+					</div>
+
+				</div>
+
+			</form>
+
 		</div>
-		<div class="row">
-			<div class="col h1">
-				<a href="https://www.facebook.com/OxtedLadiesJoggers/"><i class="fa fa-facebook-official"></i></a>
+
+		<div class="row justify-content-center">
+			<div id="form-errors" class="alert alert-danger d-none" role="alert">
+				<ul class="list-unstyled mb-0"></ul>
 			</div>
+
+			<div id="form-success" class="card border-0 text-center d-none" role="alert">
+				<div class="card-body">
+					<h4><i class="text-success align-middle fa fa-fw fa-2x fa-check-circle"></i> Thanks for registering your interest!</h4>
+					<small class="text-muted">Confirmation has been sent to: <span id="confirm-email" class="text-info"></span><br/>
+						(Please check your junk mail)
+					</small>
+				</div>
+			</div>
+		</div>
+
+		<div class="row h1 justify-content-center">
+			<a href="https://www.facebook.com/OxtedLadiesJoggers/"><i class="fa fa-facebook-official"></i></a>
 		</div>
 	</div>
 </main>
@@ -93,57 +115,91 @@
 	</div>
 </footer>
 
+<!-- Optional JavaScript -->
+<!-- jQuery first, then Popper.js, then Bootstrap JS -->
+<script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js" integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js" integrity="sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ" crossorigin="anonymous"></script>
+<script src="https://use.fontawesome.com/71d7206d11.js"></script>
+
 </body>
 
 <script>
+	const $enquiryForm = $('#enquiry-form');
+	const $formSuccess = $('#form-success');
+	const $formErrors = $('#form-errors');
+	const $confirmEmail = $('#confirm-email');
 
-	function register() {
+	$enquiryForm.submit(function (event) {
 
-		resetVisualState();
+		// Stop form from submitting normally
+		event.preventDefault();
 
-//    $.post("http://localhost:8080/clubbed-register-interest-svc/v1/siteIds/OLJ/registrations/emails/" + $('#email').val(), {})
-		$.post("http://server.v-home.co.uk/clubbed-register-interest-svc/v1/siteIds/OLJ/registrations/emails/" + $('#email').val(), {})
+		startProgress();
+
+		const email = $enquiryForm.find("input[name='email']").val();
+
+		$enquiryForm.toggleClass('d-none', false);
+		$formSuccess.toggleClass('d-none', true);
+		$formErrors.toggleClass('d-none', true);
+
+		$.post("http://server.v-home.co.uk/clubbed-svc-enquiry-handler/v1/enquiries/club-enquiry/emails/" + email, $enquiryForm.serialize())
 			.done(function (response) {
-				if (response === 'OK') {
-
-					const formRow = $('#form-row');
-					const emailAddress = $('#register-form').find('input').val();
-
-					formRow.children().remove();
-					formRow.append('<div><i class="text-success fa fa-4x fa-check-circle"></i></div>',
-						'Done!<br/>',
-						'Thanks for registering your interest. Confirmation has been sent to: <span class="text-info">' + emailAddress + '</span>. (Please check your junk mail!)');
-				}
-				else {
-					setErrorState()
-				}
+				console.log(response);
+				setSuccessState(email);
 			})
 			.fail(function (jqxhr, textStatus, error) {
-				console.error(error);
-				setErrorState();
+				if (jqxhr.responseJSON === undefined) {
+					console.error(textStatus);
+					console.error(error);
+				}
+				else {
+					setErrorState(jqxhr.responseJSON);
+				}
 			})
 			.always(function () {
 				stopProgress();
 			});
-	}
+	});
 
-	function resetVisualState() {
+	function startProgress() {
+		$("button[type='submit']").toggleClass('disabled', true).prop('disabled', true);
 		$('.fa-circle-o-notch').toggleClass('fa-spin', true);
-		$('#notify-btn').toggleClass('disabled', true);
-		$('.form-group').toggleClass('has-danger', false);
-		$('#email').toggleClass('disabled form-control-danger', true);
-		$('.form-control-feedback').toggleClass('invisible', true);
-	}
 
-	function setErrorState() {
-		$('.form-group').toggleClass('has-danger', true);
-		$('#email').toggleClass('form-control-danger', true);
-		$('.form-control-feedback').toggleClass('invisible', false);
+		$('input').toggleClass('is-invalid', false);
 	}
 
 	function stopProgress() {
-		$('#notify-btn').toggleClass('disabled', false);
+		$("button[type='submit']").toggleClass('disabled', false).prop('disabled', false);
 		$('.fa-circle-o-notch').toggleClass('fa-spin', false);
+	}
+
+	function setErrorState(response) {
+		console.error(response);
+
+		$enquiryForm.toggleClass('d-none', false);
+		$formSuccess.toggleClass('d-none', true);
+		$formErrors.toggleClass('d-none', false);
+
+		const list = $formErrors.find('ul');
+		list.empty();
+
+		const items = response.map(function (element) {
+			return '<li>' + element.errorMessage + '</li>';
+		});
+
+		list.append(items);
+
+		response.forEach(function (element) {
+			const input = $("input[name='" + element.fieldName + "']");
+			input.toggleClass('is-invalid', true);
+		})
+	}
+
+	function setSuccessState(email) {
+		$enquiryForm.toggleClass('d-none', true);
+		$formSuccess.toggleClass('d-none', false);
+		$confirmEmail.text(email);
 	}
 
 </script>
