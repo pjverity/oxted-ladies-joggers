@@ -1,11 +1,9 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
+import { h, render, Component } from 'preact';
+
+// Tell Babel to transform JSX into h() calls:
+/** @jsx h */
+
 
 import App from './components/App.jsx';
-// import 'bootstrap/dist/css/bootstrap.min.css';
-// import 'popper.js';
 
-ReactDOM.render(
-	<App/>,
-	document.getElementById('root')
-);
+render(<App/>, document.body);

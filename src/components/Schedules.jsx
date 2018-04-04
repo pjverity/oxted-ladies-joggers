@@ -1,23 +1,23 @@
-import React from 'react';
+import { h, render, Component } from 'preact';
 
-export default class Schedules extends React.Component {
-	render() {
+export default class Schedules extends Component {
+	render(props, state) {
 		return (
 			<div>
 
-				<div className="row m-4 justify-content-center">
-					<div className="col">
-						<hr className="d-none d-sm-block"/>
+				<div class="row m-4 justify-content-center">
+					<div class="col">
+						<hr class="d-none d-sm-block"/>
 					</div>
-					<div className="h4">Upcoming Courses</div>
-					<div className="col">
-						<hr className="d-none d-sm-block"/>
+					<div class="h4">Upcoming Courses</div>
+					<div class="col">
+						<hr class="d-none d-sm-block"/>
 					</div>
 				</div>
 
-				<div className="row mb-4 justify-content-center">
-					<div className="col">
-						<table className="table table-sm table-striped">
+				<div class="row mb-4 justify-content-center">
+					<div class="col">
+						<table class="table table-sm table-striped">
 							<thead>
 							<tr>
 								<th scope="col">Day</th>

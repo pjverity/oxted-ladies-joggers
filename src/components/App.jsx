@@ -1,27 +1,33 @@
-import React from 'react';
-import {BrowserRouter as Router, Route, Switch} from "react-router-dom";
+import { h, render, Component } from 'preact';
+import Router from 'preact-router';
+import Match from 'preact-router/match';
 
-import {FACEBOOK_URL, SITE_EMAIL_ADDRESS, TWITTER_URL} from '../site-constants';
+// Tell Babel to transform JSX into h() calls:
+/** @jsx h */
+
+import {FACEBOOK_URL, SITE_EMAIL_ADDRESS} from '../site-constants';
+
 import Header from "./Header.jsx";
 import Main from "./Main.jsx";
 import Footer from "./Footer.jsx";
-
 import TokenClaimFailed from "./TokenClaimFailed.jsx";
 import TokenClaimOk from "./TokenClaimOk.jsx";
 
-export default class App extends React.Component {
-	render() {
+export default class App extends Component {
+	render(props, state) {
 		return (
 			<div>
-				<Header showLogo={location.pathname === '/'}
-				        emailAddress={SITE_EMAIL_ADDRESS}
-				        facebookUrl={FACEBOOK_URL}/>
+				<Match path="/">
+					{ ({ matches, path, url }) => (
+						<Header showLogo={path === '/'}
+						        emailAddress={SITE_EMAIL_ADDRESS}
+						        facebookUrl={FACEBOOK_URL}/>
+					) }
+				</Match>
 				<Router>
-					<Switch>
-						<Route exact path="/" component={Main}/>
-						<Route path="/token-claim-failed" component={TokenClaimFailed}/>
-						<Route path="/token-claim-ok" component={TokenClaimOk}/>
-					</Switch>
+					<Main exact path="/"/>
+					<TokenClaimFailed path="/token-claim-failed"/>
+					<TokenClaimOk path="/token-claim-ok"/>
 				</Router>
 				<Footer/>
 			</div>
