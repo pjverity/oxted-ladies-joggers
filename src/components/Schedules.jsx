@@ -1,6 +1,23 @@
 import { h, render, Component } from 'preact';
 
+// Tell Babel to transform JSX into h() calls:
+/** @jsx h */
+
+import {SITE_API_URL} from '../site-constants';
+
+let SCHEDULES_API_URL = SITE_API_URL + '/schedules/search/activeSchedules';
+
 export default class Schedules extends Component {
+
+	constructor(props) {
+		super(props);
+		this.state = {schedules: []};
+	}
+
+	componentDidMount() {
+		$.get(SCHEDULES_API_URL, (data) => this.setState(data._embedded));
+	}
+
 	render(props, state) {
 		return (
 			<div>
@@ -20,49 +37,26 @@ export default class Schedules extends Component {
 						<table class="table table-sm table-striped">
 							<thead>
 							<tr>
-								<th scope="col">Day</th>
-								<th scope="col">Time</th>
+								<th scope="col">When</th>
+								<th scope="col">Duration</th>
 								<th scope="col">Group</th>
-								<th scope="col">Meeting Place</th>
+								<th scope="col">Where</th>
 							</tr>
 							</thead>
 							<tbody>
-							<tr>
-								<th scope="row">Monday 16th April to Monday 21st May</th>
-								<td>19:30</td>
-								<td>Beginner Course</td>
-								<td>Oxted School, Oxted</td>
-							</tr>
-							<tr>
-								<th scope="row">Monday 16th April to Monday 21st May</th>
-								<td>19:30</td>
-								<td>Improvers Course</td>
-								<td>Oxted School, Oxted</td>
-							</tr>
-							<tr>
-								<th scope="row">Thursday 19th April to Thursday 24th</th>
-								<td>09:30</td>
-								<td>Beginner Course</td>
-								<td>Carpenters Arms, Oxted</td>
-							</tr>
-							<tr>
-								<th scope="row">Thursday 19th April to Thursday 24th</th>
-								<td>09:30</td>
-								<td>Improvers Course</td>
-								<td>Carpenters Arms, Oxted</td>
-							</tr>
-							<tr>
-								<th scope="row">Saturday 21st April - Saturday 26th May</th>
-								<td>08:00</td>
-								<td>10k Course</td>
-								<td>Limpsfield Golf Course, Limpsfield, Oxted</td>
-							</tr>
-							<tr>
-								<th scope="row">Saturday 21st April - Saturday 26th May</th>
-								<td>08:00</td>
-								<td>Intermediate 10k Run</td>
-								<td>Limpsfield Golf Course, Limpsfield, Oxted</td>
-							</tr>
+							{
+								state.schedules.map(schedule =>
+								{
+									return (
+										<tr key={schedule.name}>
+											<th scope="row">{new Date(schedule.commences + 'T' + schedule.time).toLocaleDateString('en-GB', {weekday: 'long', hour: '2-digit', minute: '2-digit'})}</th>
+											<td>{schedule.duration}</td>
+											<td>{schedule.name}</td>
+											<td>{schedule.location}</td>
+										</tr>
+									)
+								})
+							}
 							</tbody>
 						</table>
 					</div>

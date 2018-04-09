@@ -1,7 +1,9 @@
 import { h, render, Component } from 'preact';
 import $ from "jquery";
 
-import {ENQUIRIES_API_URL} from "../site-constants";
+import {SITE_API_URL} from "../site-constants";
+
+let REGISTRATION_URL = SITE_API_URL + '/v2/club-enquiry/emails/';
 
 export default class Registration extends Component
 {
@@ -117,7 +119,7 @@ export default class Registration extends Component
 		this.state.$formErrors.toggleClass('d-none', true);
 		this.state.$formErrors.find('ul').empty();
 
-		$.post(ENQUIRIES_API_URL + email, this.state.$enquiryForm.serialize())
+		$.post(REGISTRATION_URL + email, this.state.$enquiryForm.serialize())
 			.done( (response) => {
 				console.log(response);
 
