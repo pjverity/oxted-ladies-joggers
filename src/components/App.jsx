@@ -2,9 +2,6 @@ import { h, render, Component } from 'preact';
 import Router from 'preact-router';
 import Match from 'preact-router/match';
 
-// Tell Babel to transform JSX into h() calls:
-/** @jsx h */
-
 import {FACEBOOK_URL, SITE_EMAIL_ADDRESS} from '../site-constants';
 
 import Header from "./Header.jsx";
