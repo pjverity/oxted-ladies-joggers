@@ -4,8 +4,13 @@
   "description": "Oxted Ladies Joggers Website",
   "private": true,
   "dependencies": {
+    "bootstrap": "^4.1.1",
+    "iso8601-duration": "^1.1.1",
     "jquery": "^3.3.1",
+    "lodash": "^4.17.10",
+    "moment-timezone": "^0.5.16",
     "npm": "^5.7.1",
+    "popper.js": "^1.14.3",
     "preact": "^8.2.7",
     "preact-router": "^2.6.0"
   },
@@ -14,6 +19,7 @@
     "babel-cli": "^6.26.0",
     "babel-core": "^6.26.0",
     "babel-loader": "^7.1.4",
+    "babel-plugin-transform-object-rest-spread": "^6.26.0",
     "babel-plugin-transform-react-jsx": "^6.24.1",
     "babel-preset-env": "^1.6.1",
     "css-loader": "^0.28.11",

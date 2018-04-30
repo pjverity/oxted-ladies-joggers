@@ -1,14 +1,15 @@
-import { h, render, Component } from 'preact';
-import Router from 'preact-router';
-import Match from 'preact-router/match';
+import { h, render, Component } from 'preact'
+import Router from 'preact-router'
+import Match from 'preact-router/match'
 
-import {FACEBOOK_URL, SITE_EMAIL_ADDRESS} from '../site-constants';
+import {FACEBOOK_URL, SITE_EMAIL_ADDRESS} from '../site-constants'
 
-import Header from "./Header.jsx";
-import Main from "./Main.jsx";
-import Footer from "./Footer.jsx";
-import TokenClaimFailed from "./TokenClaimFailed.jsx";
-import TokenClaimOk from "./TokenClaimOk.jsx";
+import Header from "./Header.jsx"
+import Main from "./Main.jsx"
+import Footer from "./Footer.jsx"
+import Admin from "./Admin.jsx"
+import TokenClaimFailed from "./TokenClaimFailed.jsx"
+import TokenClaimOk from "./TokenClaimOk.jsx"
 
 export default class App extends Component {
 	render(props, state) {
@@ -22,7 +23,8 @@ export default class App extends Component {
 					) }
 				</Match>
 				<Router>
-					<Main exact path="/"/>
+					<Main exact path="/" />
+					<Admin exact path="/admin" />
 					<TokenClaimFailed path="/token-claim-failed"/>
 					<TokenClaimOk path="/token-claim-ok"/>
 				</Router>
