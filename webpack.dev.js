@@ -1,3 +1,4 @@
+const path = require('path');
 const merge = require('webpack-merge');
 const webpack = require('webpack');
 const common = require('./webpack.common.js');
@@ -5,8 +6,17 @@ const common = require('./webpack.common.js');
 module.exports = merge(common, {
 	devtool: 'inline-source-map',
 	devServer: {
-		contentBase: './dist',
-		historyApiFallback: true
+		contentBase: path.resolve(__dirname, 'dist'),
+		historyApiFallback: true,
+		proxy: {
+			'/enquiries': {
+				target: 'http://localhost:8080/',
+				secure: false,
+				xfwd: true,
+				autoRewrite: true,
+				changeOrigin: true
+			}
+		}
 	},
 	plugins: [
 		new webpack.DefinePlugin({

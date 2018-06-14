@@ -4,7 +4,7 @@ const {INDEX_TITLE, INDEX_META_DESCRIPTION} = require('./src/site-constants');
 
 module.exports = {
 	output: {
-		path: path.resolve(__dirname + '/dist')
+		path: path.resolve(__dirname, 'dist')
 	},
 	module: {
 		rules: [
@@ -35,7 +35,7 @@ module.exports = {
 	},
 	plugins: [
 		new HtmlWebpackPlugin({
-			template: path.resolve(__dirname + '/src/index.html'),
+			template: path.resolve(__dirname, 'src/index.html'),
 			title: INDEX_TITLE,
 			description: INDEX_META_DESCRIPTION
 		})
