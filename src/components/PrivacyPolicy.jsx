@@ -1,4 +1,5 @@
 import {h, render, Component} from 'preact'
+import { Link } from 'preact-router/match';
 
 
 export default class PrivacyPolicy extends Component {
@@ -114,8 +115,10 @@ export default class PrivacyPolicy extends Component {
 								happy with any changes. This policy is effective from 22/05/2018.</p>
 
 							<h2>Your acceptance of these terms</h2>
-							By using this Site, you signify your acceptance of this policy. If you do not agree to this policy, please do not use our Site. Your continued use of
-							the Site following the posting of changes to this policy will be deemed your acceptance of those changes.
+							<p>By using this Site, you signify your acceptance of this policy. If you do not agree to this policy, please do not use our Site. Your continued use of
+								the Site following the posting of changes to this policy will be deemed your acceptance of those changes.</p>
+
+							<h4 class={'text-center'}> <Link href={'/'}>Home</Link></h4>
 						</div>
 					</div>
 				</div>
