@@ -1,4 +1,5 @@
 import { h, render, Component } from 'preact';
+import { Link } from 'preact-router/match';
 
 export default class Footer extends Component {
 	render(props, state) {
