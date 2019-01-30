@@ -13,7 +13,7 @@ export default class Footer extends Component {
 								<li><a href="http://www.reigatemensjoggers.co.uk">Reigate</a></li>
 							</ul>
 						</div>
-						<div class="col-auto">
+						<div class="col-4 col-sm-2">
 							Ladies
 							<ul class="list-unstyled">
 								<li><a href="http://www.reigateladiesjoggers.co.uk">Reigate</a></li>
