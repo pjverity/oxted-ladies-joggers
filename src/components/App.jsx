@@ -10,6 +10,7 @@ import Footer from "./Footer.jsx"
 import Admin from "./Admin.jsx"
 import TokenClaimFailed from "./TokenClaimFailed.jsx"
 import TokenClaimOk from "./TokenClaimOk.jsx"
+import PrivacyPolicy from "./PrivacyPolicy.jsx";
 
 export default class App extends Component {
 	render(props, state) {
@@ -25,6 +26,7 @@ export default class App extends Component {
 				<Router>
 					<Main exact path="/" />
 					<Admin exact path="/admin" />
+					<PrivacyPolicy exact path="/privacy-policy" />
 					<TokenClaimFailed path="/token-claim-failed"/>
 					<TokenClaimOk path="/token-claim-ok"/>
 				</Router>
